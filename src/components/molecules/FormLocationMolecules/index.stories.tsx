@@ -1,4 +1,4 @@
-import RentLocationMolecules from "./index";
+import RentLocationMolecules, { FormLocationMoleculesProps } from "./index";
 import { Meta, StoryFn } from "@storybook/react";
 
 export default {
@@ -6,6 +6,13 @@ export default {
   component: RentLocationMolecules,
 } as Meta;
 
-const Template: StoryFn = () => <RentLocationMolecules label="" />;
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const Template: StoryFn = (args: FormLocationMoleculesProps) => <RentLocationMolecules {...args} />;
 
 export const Default = Template.bind({});
+Default.args = {
+  location: "", // 필수 프로퍼티들을 제공하도록 수정
+  storeName: "",
+  label: "",
+};
